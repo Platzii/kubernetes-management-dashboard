@@ -118,7 +118,7 @@ $(document).ready(function() {
     function fillTable() {
         getProxyList(function(success, data) {
             if (!success) {
-                showErrorNotification('Could not get proxy list from API')
+                showErrorNotification('<p>Could not get proxy list from API</p>')
                 return
             }
             var proxies = data.result;
@@ -165,10 +165,14 @@ $(document).ready(function() {
         var name = $(this).attr('data-proxy-name');
         startProxy(name, function(success, data) {
             if (!success) {
-                showErrorNotification('Could not start proxy <em>'+name+'</em>')
+                if (typeof data.responseJSON != "undefined") {
+                    showErrorNotification('<p>Could not start proxy <em>'+name+'</em></p><p><strong>API response:</strong><br />'+data.responseJSON.message+'</p>')
+                } else {
+                    showErrorNotification('<p>Could not start proxy <em>'+name+'</em></p><p>API unavailable or responded with an unknown error</p>')
+                }
                 return
             }
-            showSuccessNotification('Proxy connection to <em>'+data.result.name+'</em> started', 'Started!', undefined, 'http://localhost:'+data.result.port+'/ui/')
+            showSuccessNotification('<p>Proxy connection to <em>'+data.result.name+'</em> started</p>', 'Started!', undefined, 'http://localhost:'+data.result.port+'/ui/')
             refreshTable();
         });
     });
@@ -177,10 +181,14 @@ $(document).ready(function() {
         var name = $(this).attr('data-proxy-name');
         stopProxy(name, function(success, data) {
             if (!success) {
-                showErrorNotification('Could not stop proxy <em>'+name+'</em>')
+                if (typeof data.responseJSON != "undefined") {
+                    showErrorNotification('<p>Could not stop proxy <em>'+name+'</em></p><p><strong>API response:</strong><br />'+data.responseJSON.message+'</p>')
+                } else {
+                    showErrorNotification('<p>Could not stop proxy <em>'+name+'</em></p><p>API unavailable or responded with an unknown error</p>')
+                }
                 return
             }
-            showSuccessNotification('Proxy connection to <em>'+data.result.name+'</em> stopped', 'Stopped!', 'fa fa-times-circle')
+            showSuccessNotification('<p>Proxy connection to <em>'+data.result.name+'</em> stopped</p>', 'Stopped!', 'fa fa-times-circle')
             refreshTable();
         });
     });
@@ -199,5 +207,5 @@ $(document).ready(function() {
     /////
 
     fillTable();
-    // showInfoNotification('Connecting to Kubernetes Proxy Management API', 'Hello!', 'fa fa-circle-o-notch fa-spin', undefined, 500)
+    // showInfoNotification('<p>Connecting to Kubernetes Proxy Management API</p>', 'Hello!', 'fa fa-circle-o-notch fa-spin', undefined, 500)
 });
