@@ -1,0 +1,54 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 5rem;
+  margin-bottom: 60px;
+}
+
+.page-description {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.table#proxy-table > tbody > tr > td {
+  vertical-align: middle;
+}
+
+button {
+  margin: 0px 5px;
+}
+
+button:first-child {
+  margin: 0px 5px 0px 0px;
+}
+
+button:last-child {
+  margin: 0px 0px 0px 5px;
+}
+
+button:only-child {
+  margin: 0px;
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit;
+  text-decoration: inherit;
+}

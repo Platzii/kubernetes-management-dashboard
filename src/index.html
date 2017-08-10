@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Kubernetes Management Dashboard">
+    <meta name="author" content="Simon Lepla">
+    <link rel="icon" href="/favicon.png">
+
+    <title>Kubernetes Management Dashboard</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha256-rr9hHBQ43H7HSOmmNkxzQGazS/Khx+L8ZRHteEY1tQ4=" crossorigin="anonymous" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+    <!-- Animate.CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css" integrity="sha256-j+P6EZJVrbXgwSR5Mx+eCS6FvP9Wq27MBRC/ogVriY0=" crossorigin="anonymous" />
+
+    <!-- Custom styles for this template -->
+    <link href="/css/kubernetes-management.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+      <nav class="container">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="/">Kubernetes Management</a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Proxy <span class="sr-only">(current)</span></a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link" href="/config.html">Config</a>
+            </li>
+            -->
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="content" class="container">
+
+      <div class="page-description">
+        <h1>Kubernetes Proxy Management</h1>
+        <p class="lead">A simple dashboard to manage your Kubernetes proxies.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table id="proxy-table" class="table table-striped">
+            <thead>
+              <tr>
+                <th style="width: 10%;">#</th>
+                <th style="width: 20%;">Name</th>
+                <th style="width: 10%;">Port</th>
+                <th style="width: 10%;">PID</th>
+                <th style="width: 20%;">Link</th>
+                <th style="width: 30%;"></th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div><!-- /.col-md-12 -->
+      </div><!--/.row -->
+
+    </div><!-- /.container -->
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Created by <a class="link-unstyled" href="http://www.platzii.com/">Platzii</a>. Find the code on <a class="link-unstyled" href="https://github.com/Platzii/kubernetes-management-dashboard">GitHub</a>!</span>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha256-+kIbbrvS+0dNOjhmQJzmwe/RILR/8lb/+4+PUNVW09k=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js" integrity="sha256-LlN0a0J3hMkDLO1mhcMwy+GIMbIRV7kvKHx4oCxNoxI=" crossorigin="anonymous"></script>
+    <script src="/js/kubernetes-management.js"></script>
+  </body>
+</html>
