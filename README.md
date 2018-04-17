@@ -5,12 +5,12 @@ To be used in combination with the [kubernetes-management-api](https://github.co
 ## How to run?
 
 1. Build Docker image
-```@bash
+```shell
 docker build -t kubernetes-management-dashboard .
 ```
 
 2. Run Docker container
-```@bash
+```shell
 docker run --name kubernetes-management-dashboard -d --restart always -p 80:80 kubernetes-management-dashboard:latest
 ```
 
