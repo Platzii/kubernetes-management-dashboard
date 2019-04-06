@@ -127,6 +127,7 @@ $(document).ready(function() {
                     $('<tr>').append(
                         $('<td>').text(i+1),
                         $('<td>').text(proxy.name),
+                        $('<td>').text(proxy.k8sVersion),
                         $('<td>').text(proxy.port),
                         $('<td>').text(proxy.pid),
                         $('<td>').append(
@@ -134,19 +135,20 @@ $(document).ready(function() {
                         ),
                         $('<td>').addClass('text-right').append(
                             $('<button>').attr('data-proxy-name', proxy.name).addClass('btn btn-danger proxy-stop').text('Stop'),
-                            $('<button>').attr('data-proxy-port', proxy.port).addClass('btn btn-primary proxy-dashboard').text('Open dashboard')
+                            $('<button>').attr('data-proxy-port', proxy.port).attr('data-k8s-version-major', proxy.k8sMajorVersion).attr('data-k8s-version-minor', proxy.k8sMinorVersion).addClass('btn btn-primary proxy-dashboard').text('Open dashboard')
                         )
                     ).appendTo($('#proxy-table tbody'));
                 } else {
                     $('<tr>').append(
                         $('<td>').text(i+1),
                         $('<td>').text(proxy.name),
+                        $('<td>').text(proxy.k8sVersion),
                         $('<td>').text(proxy.port),
                         $('<td>'),
                         $('<td>'),
                         $('<td>').addClass('text-right').append(
                             $('<button>').attr('data-proxy-name', proxy.name).addClass('btn btn-success proxy-start').text('Start'),
-                            $('<button>').attr('data-proxy-port', proxy.port).addClass('btn btn-primary proxy-dashboard disabled').text('Open dashboard')
+                            $('<button>').attr('data-proxy-port', proxy.port).attr('data-k8s-version-major', proxy.k8sMajorVersion).attr('data-k8s-version-minor', proxy.k8sMinorVersion).addClass('btn btn-primary proxy-dashboard disabled').text('Open dashboard')
                         )
                     ).appendTo($('#proxy-table tbody'));
                 }
@@ -196,7 +198,13 @@ $(document).ready(function() {
     $('#proxy-table').on('click', '.proxy-dashboard', function() {
         if ($(this).hasClass('disabled')) { return }
         var port = $(this).attr('data-proxy-port');
-        window.open('http://localhost:'+port+'/ui/');
+        var k8sMajorVersion = $(this).attr('data-k8s-version-major');
+        var k8sMinorVersion = $(this).attr('data-k8s-version-minor');
+        if (k8sMajorVersion <= 1 && k8sMinorVersion <= 9) {
+            window.open('http://localhost:'+port+'/ui/');
+        } else {
+            window.open('http://localhost:'+port+'/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/');
+        }
     });
 
     $('#proxy-table').on('click', '.proxy-link', function() {
